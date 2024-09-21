@@ -11,37 +11,48 @@ const employees = [
 
     function displayEmployeeShifts(employee){
         console.log(`${employee.name} Shifts:`);
-        employee.shifts.foreach(shift => {
+        employee.shifts.forEach(shift => {
             console.log(`${shift.day}: ${shift.hours} Hours`);
-        })}
+        });}
 
     // Task 3 Create a Function to Assign a New Shift
 
     function assignShift(employeeName, day, hours){
         const employee = employees.find(employee => employee.name === employeeName);
         const bookedShift = employee.shifts.find(shift => shift.day === day);
-        if(bookedShift){console.log(`${employeeName} already has a shift on ${day}`);
-        } else employee.shifts.push({day, hours});
-        console.log(`${employeeName} has a shift on ${day} for ${hours}hours`);
-    }
+        if(bookedShift){
+            console.log(`${employeeName} already has a shift on ${day}`);
+        } else {employee.shifts.push({day, hours });
+        console.log(`${employeeName} has a shift on ${day} for ${hours} hours`);
+    }}
 
     // Task 4 Create a Function to Calculate Total Hours Worked
 
     function calculateTotalHours(employeeName){
         const employee = employees.find(employee => employee.name ===employeeName);
-        const totalHours = employee.shifts.reduce((sum, Shift) => sum + shift.hours, 0);
-        console.log(`${employeeName} has worked ${hours}Hours`);        
+        const totalHours = employee.shifts.reduce((sum, shift) => sum + shift.hours, 0);
+        console.log(`${employeeName} has worked ${totalHours} Hours`);        
     }
 
     // Task 5 Create a Function to List Employees with Free Days
 
     function listAvailableEmployees(day){
-        const availableEmployees= employees.filter(employee =>
-            employee.shifts.some(shift => shift.day === day));
-        console.log(`Employees avalable ${days}`);
-        availableEmployees.forEach(employee =>{
-            console.log(`${employeeName}`);})   
-    }
-    if (availableEmployees.length === 0){
-        console.log(`None available on ${days}`);
-        }
+     const availableEmployees= employees.filter(employee =>
+    !employee.shifts.some(shift => shift.day === day));
+     if (availableEmployees.length > 0) {
+     console.log(`Employees available on ${day}:`);
+     availableEmployees.forEach(employee => {
+     console.log(`${employee.name}`); });} 
+     else {
+   console.log(`None available on ${day}`); }
+ }
+
+
+ //Calls 
+        console.log(displayEmployeeShifts(employees[0]));
+        console.log(assignShift("John", "Friday", 5));
+        console.log(calculateTotalHours("John"));
+        console.log(listAvailableEmployees("wednesday"));
+        
+        
+        

@@ -32,3 +32,16 @@ const employees = [
         const totalHours = employee.shifts.reduce((sum, Shift) => sum + shift.hours, 0);
         console.log(`${employeeName} has worked ${hours}Hours`);        
     }
+
+    // Task 5 Create a Function to List Employees with Free Days
+
+    function listAvailableEmployees(day){
+        const availableEmployees= employees.filter(employee =>
+            employee.shifts.some(shift => shift.day === day));
+        console.log(`Employees avalable ${days}`);
+        availableEmployees.forEach(employee =>{
+            console.log(`${employeeName}`);})   
+    }
+    if (availableEmployees.length === 0){
+        console.log(`None available on ${days}`);
+        }

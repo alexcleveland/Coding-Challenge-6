@@ -24,3 +24,11 @@ const employees = [
         } else employee.shifts.push({day, hours});
         console.log(`${employeeName} has a shift on ${day} for ${hours}hours`);
     }
+
+    // Task 4 Create a Function to Calculate Total Hours Worked
+
+    function calculateTotalHours(employeeName){
+        const employee = employees.find(employee => employee.name ===employeeName);
+        const totalHours = employee.shifts.reduce((sum, Shift) => sum + shift.hours, 0);
+        console.log(`${employeeName} has worked ${hours}Hours`);        
+    }

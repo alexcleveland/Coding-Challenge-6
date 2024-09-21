@@ -14,4 +14,13 @@ const employees = [
         employee.shifts.foreach(shift => {
             console.log(`${shift.day}: ${shift.hours} Hours`);
         })}
-        
+
+    // Task 3 Create a Function to Assign a New Shift
+
+    function assignShift(employeeName, day, hours){
+        const employee = employees.find(employee => employee.name === employeeName);
+        const bookedShift = employee.shifts.find(shift => shift.day === day);
+        if(bookedShift){console.log(`${employeeName} already has a shift on ${day}`);
+        } else employee.shifts.push({day, hours});
+        console.log(`${employeeName} has a shift on ${day} for ${hours}hours`);
+    }
